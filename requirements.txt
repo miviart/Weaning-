@@ -1,0 +1,18 @@
+val btn = findViewById<Button>(R.id.btnEvaluar)
+val result = findViewById<TextView>(R.id.result)
+
+btn.setOnClickListener {
+
+    val criterios = listOf(
+        findViewById<CheckBox>(R.id.check_mejoria).isChecked,
+        findViewById<CheckBox>(R.id.check_hemo).isChecked,
+        findViewById<CheckBox>(R.id.check_oxi).isChecked,
+        findViewById<CheckBox>(R.id.check_consciente).isChecked
+    )
+
+    if (criterios.all { it }) {
+        result.text = "APTO PARA PVE"
+    } else {
+        result.text = "NO APTO PARA PVE"
+    }
+}
